@@ -502,7 +502,7 @@ static void store_s24(
     for ( ; ns > 0; ns--, xs++, pcm += stride) {
         int32_t s = *xs >= 0 ? (int32_t)(lc3_ldexpf(*xs, 8) + 0.5f)
                              : (int32_t)(lc3_ldexpf(*xs, 8) - 0.5f);
-        *pcm = LC3_SAT24(s);
+        *pcm = LC3_SAT24(s) << 8;
     }
 }
 
